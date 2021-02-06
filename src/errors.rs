@@ -38,9 +38,15 @@ pub(crate) enum InternalError {
     VerifyError,
     /// Two arrays did not match in size, making the called signature
     /// verification method impossible.
-    ArrayLengthError{ name_a: &'static str, length_a: usize,
-                      name_b: &'static str, length_b: usize,
-                      name_c: &'static str, length_c: usize, },
+    #[allow(dead_code)]
+    ArrayLengthError {
+        name_a: &'static str,
+        length_a: usize,
+        name_b: &'static str,
+        length_b: usize,
+        name_c: &'static str,
+        length_c: usize,
+    },
     /// An ed25519ph signature can only take up to 255 octets of context.
     PrehashedContextLengthError,
 }
